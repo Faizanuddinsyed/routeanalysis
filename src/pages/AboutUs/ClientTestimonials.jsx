@@ -27,9 +27,9 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+export default function ClientTestimonials() {
   return (
-    <div className="bg-white mt-2 min-h-screen overflow-x-hidden">
+    <div className="bg-white min-h-screen overflow-x-hidden">
       {/* Hero section */}
       <div
         className="w-full h-20 bg-cover bg-center"

@@ -44,7 +44,7 @@ const allReports = [
 
 export default function AllReports() {
   return (
-    <div className="bg-white mt-2 min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Hero Image */}
       <div
         className="w-full h-20 bg-cover bg-center"
