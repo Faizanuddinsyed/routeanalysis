@@ -6,32 +6,28 @@ const allReports = [
     title: "Generative AI in Healthcare",
     description:
       "The generative AI in healthcare market is expected to be worth $3.3 billion by 2025, driven by innovation and investment.",
-    image:
-      "/images/report5.jpg",
+    image: "/images/report5.jpg",
   },
   {
     id: 2,
     title: "Global Gene Therapy Market",
     description:
       "The gene therapy market is projected to exceed $10 billion by 2025 due to increasing approvals and R&D activities.",
-    image:
-      "/images/report4.jpg",
+    image: "/images/report4.jpg",
   },
   {
     id: 3,
     title: "Large Volume Wearable Injectors",
     description:
       "This market is anticipated to grow at a CAGR of 40% thanks to increasing demand for at-home drug delivery devices.",
-    image:
-      "/images/report3.jpg",
+    image: "/images/report3.jpg",
   },
   {
     id: 4,
     title: "Biopharmaceutical Manufacturing Outsourcing",
     description:
       "The trend of outsourcing biopharmaceutical manufacturing is growing significantly, with major companies involved in the process.",
-    image:
-      "/images/report2.jpg",
+    image: "/images/report2.jpg",
   },
   {
     id: 5,
@@ -44,7 +40,7 @@ const allReports = [
 
 export default function AllReports() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white">
       {/* Hero Image */}
       <div
         className="w-full h-20 bg-cover bg-center"
