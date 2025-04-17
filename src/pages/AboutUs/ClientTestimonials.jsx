@@ -29,7 +29,7 @@ const testimonials = [
 
 export default function ClientTestimonials() {
   return (
-    <div className="bg-white min-h-screen overflow-x-hidden">
+    <div className="bg-white overflow-x-hidden">
       {/* Hero section */}
       <div
         className="w-full h-20 bg-cover bg-center"
