@@ -60,8 +60,6 @@
 //   );
 // }
 
-
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -69,12 +67,12 @@ import "swiper/css/navigation";
 
 const slides = [
   {
-    image: "/images/roots1.webp", // Use .webp images for better performance
+    image: "/images/roots2.webp", // Use .webp images for better performance
     title: "Generative AI in Healthcare Market is Worth $3.3 Billion",
     buttons: ["Learn More", "Search Reports"],
   },
   {
-    image: "/images/roots2.webp", // Use .webp images
+    image: "/images/roots1.webp", // Use .webp images
     title: "Big Data Visualization and Flow",
     buttons: ["Explore Data", "Our Insights"],
   },
