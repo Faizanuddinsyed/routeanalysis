@@ -16,7 +16,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-blue-900 text-white px-6 py-4 shadow-md z-50 relative">
+    <header className="bg-gray-900 text-white px-6 py-4 shadow-md z-50 relative">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold">Roots Analysis</h1>
 
@@ -49,7 +49,7 @@ export default function Header() {
                       Aerospace and Defense
                     </Link>
                   </li>
-                  
+
                   <li>
                     <Link
                       to="/reports/automobile"
@@ -243,7 +243,7 @@ export default function Header() {
               </div>
               {openDropdown === "reports" && (
                 <ul className="ml-4 mt-1 space-y-2">
-                 <li>
+                  <li>
                     <Link
                       to="/reports/aerospace"
                       onClick={handleLinkClick}
@@ -252,7 +252,7 @@ export default function Header() {
                       Aerospace and Defense
                     </Link>
                   </li>
-                  
+
                   <li>
                     <Link
                       to="/reports/automobile"
@@ -361,11 +361,19 @@ export default function Header() {
                       Medical Devices
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to="/reports/reportpage"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      All Reports
+                    </Link>
+                  </li>
                 </ul>
               )}
             </li>
 
-            
             <li>
               <Link to="/blogs" onClick={handleLinkClick}>
                 Blogs

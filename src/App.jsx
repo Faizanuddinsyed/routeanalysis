@@ -1,58 +1,10 @@
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Header from "./components/Header";
-
-// // Import Pages
-// import Home from "./pages/Home";
-// import Market from "./pages/Reports/Market";
-// import Indication from "./pages/Reports/Indication";
-// import AllReports from "./pages/Reports/AllReports";
-// import PressOffice from "./pages/PressOffice";
-// import Insights from "./pages/Insights";
-// import Blogs from "./pages/Blogs";
-// import WhoWeAre from "./pages/AboutUs/WhoWeAre";
-// import OurTeam from "./pages/AboutUs/OurTeam";
-// import ClientTestimonial from "./pages/AboutUs/ClientTestimonials";
-// import OurClients from "./pages/AboutUs/OurClients";
-// import ContactUs from "./pages/ContactUs";
-// import Footer from "./components/Footer"
-
-// export default function App() {
-//   return (
-//     <Router>
-//       <Header />
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-
-//         {/* Reports */}
-//         <Route path="/reports/market" element={<Market />} />
-//         <Route path="/reports/indication" element={<Indication />} />
-//         <Route path="/reports/all" element={<AllReports />} />
-
-//         {/* Other Pages */}
-//         <Route path="/press-office" element={<PressOffice />} />
-//         <Route path="/insights" element={<Insights />} />
-//         <Route path="/blogs" element={<Blogs />} />
-//         <Route path="/contact" element={<ContactUs />} />
-
-//         {/* About Us */}
-//         <Route path="/about/who-we-are" element={<WhoWeAre />} />
-//         <Route path="/about/our-team" element={<OurTeam />} />
-//         <Route path="/about/testimonial" element={<ClientTestimonial />} />
-//         <Route path="/about/our-clients" element={<OurClients />} />
-//       </Routes>
-//       <Footer/>
-//     </Router>
-//   );
-// }
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 
 // // Import Pages
 import Home from "./pages/Home";
-import Market from "./pages/Reports/Aerospace";
-import Indication from "./pages/Reports/Indication";
-import AllReports from "./pages/Reports/Automobile";
+
 import PressOffice from "./pages/PressOffice";
 import Insights from "./pages/Insights";
 import Blogs from "./pages/Blogs";
@@ -73,6 +25,10 @@ import Pharma from "./pages/Reports/Pharma";
 import Electronics from "./pages/Reports/Electronics";
 import Medical from "./pages/Reports/Medical";
 import Communication from "./pages/Reports/Communication";
+import ReportsPage from "./pages/ReportPage";
+import Automobile from "./pages/Reports/Automobile";
+import Aerospace from "./pages/Reports/Aerospace";
+import AllReports from "./pages/AllReports";
 
 export default function App() {
   return (
@@ -85,9 +41,8 @@ export default function App() {
             <Route path="/" element={<Home />} />
 
             {/* Reports */}
-            <Route path="/reports/aerospace" element={<Market />} />
-            <Route path="/reports/indication" element={<Indication />} />
-            <Route path="/reports/automobile" element={<AllReports />} />
+            <Route path="/reports/aerospace" element={<Aerospace />} />
+            <Route path="/reports/automobile" element={<Automobile />} />
             <Route path="/reports/bio" element={<Biotechnology />} />
             <Route path="/reports/chemical" element={<Chemical />} />
             <Route path="/reports/consumer" element={<Consumer />} />
@@ -97,10 +52,11 @@ export default function App() {
             <Route path="/reports/manufacturing" element={<Manufacturing />} />
             <Route path="/reports/pharma" element={<Pharma />} />
             <Route path="/reports/electronics" element={<Electronics />} />
-            <Route path="/reports/automobile" element={<AllReports />} />
+            <Route path="/reports/automobile" element={<Automobile />} />
             <Route path="/reports/medical" element={<Medical />} />
             <Route path="/reports/communication" element={<Communication />} />
-
+            <Route path="/reportpage" element={<ReportsPage />} />
+            <Route path="/allreports" element={<AllReports />} />
             {/* Other Pages */}
             <Route path="/press-office" element={<PressOffice />} />
             <Route path="/insights" element={<Insights />} />
