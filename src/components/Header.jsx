@@ -37,49 +37,129 @@ export default function Header() {
             </li>
 
             <li className="relative group">
-              <div className="cursor-pointer">Reports</div>
+              <div className="cursor-pointer">Industries</div>
               <div className="absolute left-0 top-full opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-200 bg-white text-black mt-2 p-2 shadow rounded min-w-[160px] z-50">
                 <ul>
                   <li>
                     <Link
-                      to="/reports/market"
+                      to="/reports/aerospace"
                       onClick={handleLinkClick}
                       className="block px-2 py-1 hover:bg-gray-200"
                     >
-                      Market
+                      Aerospace and Defense
+                    </Link>
+                  </li>
+                  
+                  <li>
+                    <Link
+                      to="/reports/automobile"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Automotive and Transportation
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to="/reports/indication"
+                      to="/reports/bio"
                       onClick={handleLinkClick}
                       className="block px-2 py-1 hover:bg-gray-200"
                     >
-                      Indication
+                      Biotechnology
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to="/reports/all"
+                      to="/reports/chemical"
                       onClick={handleLinkClick}
                       className="block px-2 py-1 hover:bg-gray-200"
                     >
-                      All Reports
+                      Chemicals and Materials
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/consumer"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Consumer Goods
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/energy"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Energy and Power
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/food"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Food and Beverages
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/health"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Healthcare IT
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/communication"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Information and Communications
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/manufacturing"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Manufacturing and Construction
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/pharma"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Pharmaceuticals
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/electronics"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Electronics and Semiconductor
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/medical"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Medical Devices
                     </Link>
                   </li>
                 </ul>
               </div>
-            </li>
-
-            <li>
-              <Link to="/press-office" onClick={handleLinkClick}>
-                Press Office
-              </Link>
-            </li>
-            <li>
-              <Link to="/insights" onClick={handleLinkClick}>
-                Insights
-              </Link>
             </li>
             <li>
               <Link
@@ -158,40 +238,134 @@ export default function Header() {
                 className="cursor-pointer flex justify-between items-center"
                 onClick={() => toggleDropdown("reports")}
               >
-                Reports
+                Industries
                 <span>{openDropdown === "reports" ? "▲" : "▼"}</span>
               </div>
               {openDropdown === "reports" && (
                 <ul className="ml-4 mt-1 space-y-2">
+                 <li>
+                    <Link
+                      to="/reports/aerospace"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Aerospace and Defense
+                    </Link>
+                  </li>
+                  
                   <li>
-                    <Link to="/reports/market" onClick={handleLinkClick}>
-                      Market
+                    <Link
+                      to="/reports/automobile"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Automotive and Transportation
                     </Link>
                   </li>
                   <li>
-                    <Link to="/reports/indication" onClick={handleLinkClick}>
-                      Indication
+                    <Link
+                      to="/reports/bio"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Biotechnology
                     </Link>
                   </li>
                   <li>
-                    <Link to="/reports/all" onClick={handleLinkClick}>
-                      All Reports
+                    <Link
+                      to="/reports/chemical"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Chemicals and Materials
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/consumer"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Consumer Goods
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/energy"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Energy and Power
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/food"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Food and Beverages
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/health"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Healthcare IT
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/communication"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Information and Communications
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/manufacturing"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Manufacturing and Construction
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/pharma"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Pharmaceuticals
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/electronics"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Electronics and Semiconductor
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/reports/medical"
+                      onClick={handleLinkClick}
+                      className="block px-2 py-1 hover:bg-gray-200"
+                    >
+                      Medical Devices
                     </Link>
                   </li>
                 </ul>
               )}
             </li>
 
-            <li>
-              <Link to="/press-office" onClick={handleLinkClick}>
-                Press Office
-              </Link>
-            </li>
-            <li>
-              <Link to="/insights" onClick={handleLinkClick}>
-                Insights
-              </Link>
-            </li>
+            
             <li>
               <Link to="/blogs" onClick={handleLinkClick}>
                 Blogs
@@ -228,15 +402,14 @@ export default function Header() {
                       Our Clients
                     </Link>
                   </li>
-                  
                 </ul>
               )}
             </li>
             <li>
-                    <Link to="/contact" onClick={handleLinkClick}>
-                      Contact Us
-                    </Link>
-                  </li>
+              <Link to="/contact" onClick={handleLinkClick}>
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </nav>
       )}

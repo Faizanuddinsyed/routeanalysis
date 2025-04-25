@@ -50,9 +50,9 @@ import Header from "./components/Header";
 
 // // Import Pages
 import Home from "./pages/Home";
-import Market from "./pages/Reports/Market";
+import Market from "./pages/Reports/Aerospace";
 import Indication from "./pages/Reports/Indication";
-import AllReports from "./pages/Reports/AllReports";
+import AllReports from "./pages/Reports/Automobile";
 import PressOffice from "./pages/PressOffice";
 import Insights from "./pages/Insights";
 import Blogs from "./pages/Blogs";
@@ -62,6 +62,17 @@ import ClientTestimonials from "./pages/AboutUs/ClientTestimonials";
 import OurClients from "./pages/AboutUs/OurClients";
 import ContactUs from "./pages/ContactUs";
 import Footer from "./components/Footer";
+import Biotechnology from "./pages/Reports/Biotechnology";
+import Chemical from "./pages/Reports/Chemical";
+import Consumer from "./pages/Reports/Consumer";
+import Energy from "./pages/Reports/Energy";
+import Food from "./pages/Reports/Food";
+import HealthCare from "./pages/Reports/HealthCare";
+import Manufacturing from "./pages/Reports/Manufacturing";
+import Pharma from "./pages/Reports/Pharma";
+import Electronics from "./pages/Reports/Electronics";
+import Medical from "./pages/Reports/Medical";
+import Communication from "./pages/Reports/Communication";
 
 export default function App() {
   return (
@@ -74,9 +85,21 @@ export default function App() {
             <Route path="/" element={<Home />} />
 
             {/* Reports */}
-            <Route path="/reports/market" element={<Market />} />
+            <Route path="/reports/aerospace" element={<Market />} />
             <Route path="/reports/indication" element={<Indication />} />
-            <Route path="/reports/all" element={<AllReports />} />
+            <Route path="/reports/automobile" element={<AllReports />} />
+            <Route path="/reports/bio" element={<Biotechnology />} />
+            <Route path="/reports/chemical" element={<Chemical />} />
+            <Route path="/reports/consumer" element={<Consumer />} />
+            <Route path="/reports/energy" element={<Energy />} />
+            <Route path="/reports/food" element={<Food />} />
+            <Route path="/reports/health" element={<HealthCare />} />
+            <Route path="/reports/manufacturing" element={<Manufacturing />} />
+            <Route path="/reports/pharma" element={<Pharma />} />
+            <Route path="/reports/electronics" element={<Electronics />} />
+            <Route path="/reports/automobile" element={<AllReports />} />
+            <Route path="/reports/medical" element={<Medical />} />
+            <Route path="/reports/communication" element={<Communication />} />
 
             {/* Other Pages */}
             <Route path="/press-office" element={<PressOffice />} />
