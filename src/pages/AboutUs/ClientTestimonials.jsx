@@ -296,7 +296,7 @@ export default function ClientTestimonials() {
 
   return (
     <div
-      className="relative bg-cover bg-center text-white py-20"
+      className="relative bg-cover bg-center text-white py-20 my-5"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1521790945508-bf2a36314e85?auto=format&fit=crop&w=1600&q=80')",
