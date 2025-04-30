@@ -1,9 +1,10 @@
-import React from 'react'
-
 const Aerospace = () => {
   return (
-    <div>Aerospace</div>
-  )
-}
+    <div>
+      <h1 className="text-3xl font-bold mb-4">Aerospace Reports</h1>
+      <p>This page contains all aerospace-related market research data.</p>
+    </div>
+  );
+};
 
-export default Aerospace
+export default Aerospace;

@@ -2,7 +2,10 @@ import React from 'react'
 
 const Food = () => {
   return (
-    <div>Food</div>
+    <div>
+      <h1 className="text-3xl font-bold mb-4">Aerospace Reports</h1>
+      <p>This page contains all aerospace-related market research data.</p>
+    </div>
   )
 }
 
