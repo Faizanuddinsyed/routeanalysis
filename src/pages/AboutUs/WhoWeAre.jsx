@@ -25,7 +25,7 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <div className="px-6 py-12 bg-gray-50 min-h-screen">
+    <div className="px-6 py-12 bg-gray-50 ">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-4 text-blue-900">Why Choose Us?</h2>
         <p className="text-gray-700 mb-10">
