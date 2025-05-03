@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp, Rocket } from "lucide-react";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,412 +15,228 @@ export default function Header() {
     setOpenDropdown(null);
   };
 
-  return (
-    <header className="bg-gray-900 text-white px-6 py-4 shadow-md z-50 relative">
-      <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold">Roots Analysis</h1>
+  // Dropdown data
+  const industriesItems = [
+    ["Aerospace", "/reports/aerospace"],
+    ["Automotive", "/reports/automobile"],
+    ["Biotech", "/reports/bio"],
+    ["Chemicals", "/reports/chemical"],
+    ["Consumer Goods", "/reports/consumer"],
+    ["Energy", "/reports/energy"],
+    ["Food&Beverage", "/reports/food"],
+    ["Healthcare IT", "/reports/health"],
+    ["Communication", "/reports/communication"],
+    ["Manufacturing", "/reports/manufacturing"],
+    ["Pharmaceutical", "/reports/pharma"],
+    ["Electronics", "/reports/electronics"],
+    ["Medical Devices", "/reports/medical"],
+    ["View All", "/reports/reportpage"],
+  ];
 
-        {/* Mobile Toggle */}
-        <div className="md:hidden">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+  const aboutItems = [
+    ["Our Company", "/about/who-we-are"],
+    ["Team", "/about/our-team"],
+    ["Testimonials", "/about/testimonial"],
+    ["Clients", "/about/our-clients"],
+  ];
+
+  return (
+    <header className="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          {/* Clickable Logo/Title */}
+          <Link to="/" className="flex items-center gap-2 group">
+            <Rocket className="w-6 h-6 text-blue-500 group-hover:text-blue-600 transition-colors"/>
+            <span className="text-2xl font-bold text-blue-500 group-hover:text-blue-600 transition-all 
+                          group-hover:scale-[1.02] active:scale-95 duration-200">
+              Roots Analysis
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-1">
+            <Link
+              to="/"
+              className="px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-blue-300 transition-all duration-200 font-medium"
+            >
+              Home
+            </Link>
+
+            {/* Industries Dropdown */}
+            <div className="relative">
+              <button 
+                onClick={() => toggleDropdown('industries')}
+                className="px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-blue-300 transition-all duration-200 font-medium flex items-center gap-1"
+              >
+                Industries
+                <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'industries' ? 'rotate-180' : ''}`} />
+              </button>
+              {openDropdown === 'industries' && (
+                <div className="absolute left-0 top-full pt-2 w-96">
+                  <div className="bg-white text-gray-900 rounded-xl shadow-2xl p-6 border border-gray-200">
+                    <h3 className="text-lg font-bold mb-4 text-blue-600">Industry Reports</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      {industriesItems.map(([title, path]) => (
+                        <Link
+                          key={path}
+                          to={path}
+                          onClick={handleLinkClick}
+                          className="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors group/item"
+                        >
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover/item:scale-150 transition-transform"></div>
+                          <span className="font-medium">{title}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Link
+              to="/blogs"
+              className="px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-blue-300 transition-all duration-200 font-medium"
+            >
+              Blogs
+            </Link>
+
+            {/* About Dropdown */}
+            <div className="relative">
+              <button 
+                onClick={() => toggleDropdown('about')}
+                className="px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-blue-300 transition-all duration-200 font-medium flex items-center gap-1"
+              >
+                About
+                <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'about' ? 'rotate-180' : ''}`} />
+              </button>
+              {openDropdown === 'about' && (
+                <div className="absolute left-0 top-full pt-2 w-64">
+                  <div className="bg-white text-gray-900 rounded-xl shadow-2xl p-4 border border-gray-200">
+                    <h3 className="text-lg font-bold mb-3 text-blue-600">About Us</h3>
+                    <div className="space-y-2">
+                      {aboutItems.map(([title, path]) => (
+                        <Link
+                          key={path}
+                          to={path}
+                          onClick={handleLinkClick}
+                          className="flex items-center p-3 rounded-lg hover:bg-blue-50 transition-colors group/item"
+                        >
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover/item:scale-150 transition-transform"></div>
+                          <span className="font-medium">{title}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Link
+              to="/contact"
+              className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition-all duration-200 font-medium ml-2"
+            >
+              Contact
+            </Link>
+          </nav>
+
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-3 rounded-lg hover:bg-gray-800 transition-colors"
+          >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:block">
-          <ul className="flex gap-6 text-sm font-medium items-center">
-            <li>
-              <Link to="/" onClick={handleLinkClick}>
-                Home
-              </Link>
-            </li>
-
-            <li className="relative group">
-              <div className="cursor-pointer">Industries</div>
-              <div className="absolute left-0 top-full opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-200 bg-white text-black mt-2 p-2 shadow rounded min-w-[160px] z-50">
-                <ul>
-                  <li>
-                    <Link
-                      to="/reports/aerospace"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Aerospace and Defense
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      to="/reports/automobile"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Automotive and Transportation
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/bio"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Biotechnology
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/chemical"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Chemicals and Materials
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/consumer"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Consumer Goods
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/energy"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Energy and Power
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/food"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Food and Beverages
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/health"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Healthcare IT
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/communication"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Information and Communications
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/manufacturing"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Manufacturing and Construction
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/pharma"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Pharmaceuticals
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/electronics"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Electronics and Semiconductor
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/medical"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Medical Devices
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <nav className="lg:hidden pb-6 bg-gray-900 mt-2 rounded-lg">
+            <div className="space-y-2 px-4">
               <Link
-                to="/contact"
+                to="/"
                 onClick={handleLinkClick}
-                className="block px-2 py-1 hover:text-blue-200"
+                className="block py-4 px-6 hover:bg-gray-800 rounded-lg text-lg font-medium transition-colors"
               >
-                Contact Us
-              </Link>
-            </li>
-            <li>
-              <Link to="/blogs" onClick={handleLinkClick}>
-                Blogs
-              </Link>
-            </li>
-
-            <li className="relative group">
-              <div className="cursor-pointer">About Us</div>
-              <div className="absolute left-0 top-full opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-200 bg-white text-black mt-2 p-2 shadow rounded min-w-[180px] z-50">
-                <ul>
-                  <li>
-                    <Link
-                      to="/about/who-we-are"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Who We Are
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/about/our-team"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Our Team
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/about/testimonial"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Client Testimonial
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/about/our-clients"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Our Clients
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      {/* Mobile Nav */}
-      {isMobileMenuOpen && (
-        <nav className="md:hidden mt-4">
-          <ul className="flex flex-col gap-4 text-sm font-medium">
-            <li>
-              <Link to="/" onClick={handleLinkClick}>
                 Home
               </Link>
-            </li>
 
-            <li>
-              <div
-                className="cursor-pointer flex justify-between items-center"
-                onClick={() => toggleDropdown("reports")}
-              >
-                Industries
-                <span>{openDropdown === "reports" ? "▲" : "▼"}</span>
+              <div className="border-t border-gray-700 pt-2">
+                <button
+                  onClick={() => toggleDropdown("reports")}
+                  className="w-full flex justify-between items-center py-4 px-6 hover:bg-gray-800 rounded-lg text-lg font-medium transition-colors"
+                >
+                  <span>Industries</span>
+                  {openDropdown === "reports" ? (
+                    <ChevronUp size={20} />
+                  ) : (
+                    <ChevronDown size={20} />
+                  )}
+                </button>
+                {openDropdown === "reports" && (
+                  <div className="ml-6 mt-2 space-y-3 bg-gray-800 p-4 rounded-lg">
+                    {industriesItems.map(([title, path]) => (
+                      <Link
+                        key={path}
+                        to={path}
+                        onClick={handleLinkClick}
+                        className="block py-3 px-4 hover:bg-gray-700 rounded-lg transition-colors font-medium"
+                      >
+                        {title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-              {openDropdown === "reports" && (
-                <ul className="ml-4 mt-1 space-y-2">
-                  <li>
-                    <Link
-                      to="/reports/aerospace"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Aerospace and Defense
-                    </Link>
-                  </li>
 
-                  <li>
-                    <Link
-                      to="/reports/automobile"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Automotive and Transportation
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/bio"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Biotechnology
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/chemical"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Chemicals and Materials
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/consumer"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Consumer Goods
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/energy"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Energy and Power
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/food"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Food and Beverages
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/health"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Healthcare IT
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/communication"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Information and Communications
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/manufacturing"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Manufacturing and Construction
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/pharma"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Pharmaceuticals
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/electronics"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Electronics and Semiconductor
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/medical"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      Medical Devices
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/reports/reportpage"
-                      onClick={handleLinkClick}
-                      className="block px-2 py-1 hover:bg-gray-200"
-                    >
-                      All Reports
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-
-            <li>
-              <Link to="/blogs" onClick={handleLinkClick}>
+              <Link
+                to="/blogs"
+                onClick={handleLinkClick}
+                className="block py-4 px-6 hover:bg-gray-800 rounded-lg text-lg font-medium transition-colors"
+              >
                 Blogs
               </Link>
-            </li>
 
-            <li>
-              <div
-                className="cursor-pointer flex justify-between items-center"
-                onClick={() => toggleDropdown("about")}
-              >
-                About Us
-                <span>{openDropdown === "about" ? "▲" : "▼"}</span>
+              <div className="border-t border-gray-700 pt-2">
+                <button
+                  onClick={() => toggleDropdown("about")}
+                  className="w-full flex justify-between items-center py-4 px-6 hover:bg-gray-800 rounded-lg text-lg font-medium transition-colors"
+                >
+                  <span>About Us</span>
+                  {openDropdown === "about" ? (
+                    <ChevronUp size={20} />
+                  ) : (
+                    <ChevronDown size={20} />
+                  )}
+                </button>
+                {openDropdown === "about" && (
+                  <div className="ml-6 mt-2 space-y-3 bg-gray-800 p-4 rounded-lg">
+                    {aboutItems.map(([title, path]) => (
+                      <Link
+                        key={path}
+                        to={path}
+                        onClick={handleLinkClick}
+                        className="block py-3 px-4 hover:bg-gray-700 rounded-lg transition-colors font-medium"
+                      >
+                        {title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-              {openDropdown === "about" && (
-                <ul className="ml-4 mt-1 space-y-2">
-                  <li>
-                    <Link to="/about/who-we-are" onClick={handleLinkClick}>
-                      Who We Are
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/about/our-team" onClick={handleLinkClick}>
-                      Our Team
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/about/testimonial" onClick={handleLinkClick}>
-                      Client Testimonial
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/about/our-clients" onClick={handleLinkClick}>
-                      Our Clients
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </li>
-            <li>
-              <Link to="/contact" onClick={handleLinkClick}>
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      )}
+
+              <div className="border-t border-gray-700 pt-2">
+                <Link
+                  to="/contact"
+                  onClick={handleLinkClick}
+                  className="block py-4 px-6 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-medium text-center transition-colors"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+          </nav>
+        )}
+      </div>
     </header>
   );
 }
