@@ -13,21 +13,63 @@ const clients = [
 
 export default function OurClients() {
   return (
-    <section className="bg-gray-50 py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Our Clients</h2>
-        <p className="text-center text-gray-600 text-2xl max-w-3xl mx-auto leading-relaxed mb-2">750+ firms globally trust capabilities of Roots Analysis for relevant, comprehensive and smart insights.</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center">
+    <section className="bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            Trusted by Industry Leaders
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            750+ global firms rely on Roots Analysis for strategic market intelligence
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 lg:gap-8">
           {clients.map((client, index) => (
-            <div key={index} className="text-center">
-              <img
-                src={client.logo}
-                alt={client.name}
-                className="h-16 mx-auto object-contain"
-              />
-              <p className="mt-2 text-sm font-medium">{client.name}</p>
+            <div 
+              key={index}
+              className="group relative bg-white p-4 rounded-2xl border border-gray-100 hover:border-blue-100 transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-2"
+            >
+              <div className="flex items-center justify-center h-40">
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="h-20 w-48 object-contain transition-all duration-300 group-hover:scale-110"
+                  onError={(e) => {
+                    e.target.src = `https://via.placeholder.com/192x80?text=${client.name}`;
+                  }}
+                />
+              </div>
+              <div className="absolute inset-0 flex items-end justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-gradient-to-t from-gray-900/90 to-transparent w-full h-1/2 rounded-2xl absolute bottom-0" />
+                <p className="text-sm font-semibold text-white relative z-10 text-center">
+                  {client.name}
+                </p>
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <a 
+            href="/contact" 
+            className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+          >
+            <span>Join Our Client Network</span>
+            <svg 
+              className="w-5 h-5 ml-2" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M17 8l4 4m0 0l-4 4m4-4H3" 
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
