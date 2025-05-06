@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Sun,
@@ -8,24 +8,23 @@ import {
   BatteryCharging,
 } from 'lucide-react';
 
-// Dummy images for now (replace with your own later)
 const imageUrl = 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=120&q=80';
-
 
 const reports = [
   {
-    title: 'Solar Energy',
-    icon: Sun,
+    title: 'Green Hydrogen',
+    icon: Droplets, // Or use a custom icon if available
     description:
-      'Dive into in-depth analysis of solar photovoltaic tech, industry investments, and global trends shaping the solar energy transition. From utility-scale projects to rooftop installations, understand key drivers and forecasts.',
-    path: '/reports/energy/solar',
-    image: imageUrl,
+      'Explore market insights on green hydrogen and e-fuels, key trends, top players, and how they’re reshaping global clean energy transitions.',
+    path: '/reports/energy/green-hydrogen',
+    image: imageUrl, // You can update this to a more relevant hydrogen-related image
   },
+  
   {
     title: 'Wind Energy',
     icon: Wind,
     description:
-      'Get insights into onshore and offshore wind farms, turbine innovations, regulatory frameworks, and country-specific growth strategies in the wind energy domain.',
+      'Get insights into onshore and offshore wind farms, turbine innovations, regulatory frameworks, and growth strategies.',
     path: '/reports/energy/wind',
     image: imageUrl,
   },
@@ -33,7 +32,7 @@ const reports = [
     title: 'Hydroelectric',
     icon: Droplets,
     description:
-      'A comprehensive overview of hydroelectric power projects, dam infrastructure, ecological impact studies, and the role of hydro in grid reliability.',
+      'A comprehensive overview of hydroelectric power projects, dam infrastructure, and ecological impact studies.',
     path: '/reports/energy/hydro',
     image: imageUrl,
   },
@@ -41,7 +40,7 @@ const reports = [
     title: 'Geothermal',
     icon: Flame,
     description:
-      'Explore deep-earth energy extraction, enhanced geothermal systems (EGS), and global usage trends in clean base-load power.',
+      'Explore deep-earth energy extraction, enhanced geothermal systems (EGS), and clean base-load power trends.',
     path: '/reports/energy/geothermal',
     image: imageUrl,
   },
@@ -49,13 +48,23 @@ const reports = [
     title: 'Battery Storage',
     icon: BatteryCharging,
     description:
-      'Track the evolution of battery storage solutions across residential, commercial, and utility markets — including lithium-ion, solid-state, and flow battery systems.',
+      'Track the evolution of battery storage across residential, commercial, and utility markets.',
     path: '/reports/energy/battery',
     image: imageUrl,
   },
 ];
 
+const ITEMS_PER_PAGE = 3;
+
 const Energy = () => {
+  const [page, setPage] = useState(1);
+  const totalPages = Math.ceil(reports.length / ITEMS_PER_PAGE);
+
+  const paginatedReports = reports.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE
+  );
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="flex flex-col md:flex-row gap-8">
@@ -68,7 +77,7 @@ const Energy = () => {
             Explore deep-dive market intelligence across major renewable and conventional energy sectors.
           </p>
 
-          {reports.map((report, index) => {
+          {paginatedReports.map((report, index) => {
             const Icon = report.icon;
             return (
               <Link
@@ -97,6 +106,23 @@ const Energy = () => {
               </Link>
             );
           })}
+
+          {/* Pagination */}
+          <div className="flex justify-center space-x-2 pt-6">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setPage(i + 1)}
+                className={`w-8 h-8 rounded-full text-sm font-medium border ${
+                  page === i + 1
+                    ? "bg-indigo-600 text-white border-indigo-600"
+                    : "bg-white text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Right Section - CTA Card */}
