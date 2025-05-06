@@ -72,17 +72,20 @@ const Sidebar = () => {
       {/* Sidebar */}
       <div
         className={`${isOpen ? "translate-x-0" : "-translate-x-full"} 
-          fixed md:relative
-          top-0 left-0 
-          h-screen  // Full height
-          w-64 
-          bg-white 
-          z-40 
-          transition-transform duration-300 ease-in-out
-          md:translate-x-0
-          border-r border-gray-200
-          shadow-lg
-        `}
+        fixed md:sticky
+        top-6 left-0 
+        max-h-[calc(100vh-3rem)] 
+        w-64 
+        bg-white 
+        z-40 
+        transition-transform duration-300 ease-in-out
+        md:translate-x-0
+        border border-gray-200
+        shadow-xl 
+        rounded-2xl 
+        overflow-hidden
+        mx-4
+      `}
       >
         {/* Spacer matching header height */}
         <div className="h-24 md:h-20 px-4 flex items-center border-b border-gray-200">
