@@ -208,10 +208,7 @@
 //   return (
 //     <div className="bg-white text-center px-4 py-16 max-w-3xl mx-auto relative overflow-hidden">
 //       <h2 className="text-3xl font-bold mb-10">What Our Clients Say</h2>
-
-//       <div className="bg-gray-100 p-6 rounded-lg shadow transition-all duration-500">
-//         <p className="italic text-gray-700 text-lg mb-4">
-//           "{testimonials[current].quote}"
+       "{testimonials[current].quote}"
 //         </p>
 //         <h3 className="text-xl font-semibold text-gray-800">
 //           {testimonials[current].name}
@@ -236,6 +233,9 @@
 //   );
 // }
 
+//       <div className="bg-gray-100 p-6 rounded-lg shadow transition-all duration-500">
+//         <p className="italic text-gray-700 text-lg mb-4">
+//    
 
 
 import React, { useState, useEffect } from "react";
