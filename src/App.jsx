@@ -32,7 +32,7 @@ import Medical from "./pages/Reports/Medical";
 import Communication from "./pages/Reports/Communication";
 import ReportsPage from "./pages/ReportPage";
 import AllReports from "./pages/AllReports";
-
+import GreenHydrogen from "./pages/Reports/energy/GreenHydrogren";
 export default function App() {
   return (
     <Router>
@@ -50,12 +50,15 @@ export default function App() {
               <Route path="/reports/chemical" element={<Chemical />} />
               <Route path="/reports/consumer" element={<Consumer />} />
               <Route path="/reports/energy" element={<Energy />} />
+              
+
               <Route path="/reports/food" element={<Food />} />
               <Route path="/reports/health" element={<HealthCare />} />
               <Route
                 path="/reports/manufacturing"
                 element={<Manufacturing />}
               />
+             
               <Route path="/reports/pharma" element={<Pharma />} />
               <Route path="/reports/electronics" element={<Electronics />} />
               <Route path="/reports/medical" element={<Medical />} />
@@ -69,6 +72,7 @@ export default function App() {
 
             {/* Other pages without sidebar */}
             <Route path="/press-office" element={<PressOffice />} />
+            <Route path="/reports/energy/green-hydrogen" element={<GreenHydrogen />} />
             <Route path="/insights" element={<Insights />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/contact" element={<ContactUs />} />
